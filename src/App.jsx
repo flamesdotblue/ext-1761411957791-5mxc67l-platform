@@ -1,28 +1,30 @@
-import { useState } from 'react'
+import Hero from './components/Hero';
+import RoleTabs from './components/RoleTabs';
+import CourseGrid from './components/CourseGrid';
+import FooterCTA from './components/FooterCTA';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div className="min-h-screen w-full bg-neutral-950 text-white">
+      <header className="relative h-[80vh] md:h-[85vh] overflow-hidden">
+        <Hero />
+      </header>
+
+      <main className="relative z-10">
+        <section className="container mx-auto px-4 md:px-8 -mt-24">
+          <div className="bg-neutral-900/70 backdrop-blur-xl border border-neutral-800/70 rounded-2xl shadow-2xl p-4 md:p-8">
+            <RoleTabs />
+          </div>
+        </section>
+
+        <section className="container mx-auto px-4 md:px-8 mt-16 md:mt-24">
+          <CourseGrid />
+        </section>
+      </main>
+
+      <FooterCTA />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
